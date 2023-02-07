@@ -75,7 +75,7 @@ public class PostsApiControllerTest {
         String url = "http://localhost:"+port+"/api/v1/posts";
 
         //when
-        mvc.perform(post(url).contentType(MediaType.APPLICATION_JSON_UTF8)
+        mvc.perform(post(url).contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(requestDto)))
                 .andExpect(status().isOk());
 
@@ -110,7 +110,7 @@ public class PostsApiControllerTest {
         HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
         //when
-        mvc.perform(put(url).contentType(MediaType.APPLICATION_JSON_UTF8)
+        mvc.perform(put(url).contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(requestDto)))
                 .andExpect(status().isOk());
 
